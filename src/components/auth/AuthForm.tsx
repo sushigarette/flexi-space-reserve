@@ -54,8 +54,13 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
           : "Votre compte a été créé. Vous pouvez maintenant vous connecter.",
       });
       
-      // Redirection vers le plan de réservation après connexion
-      navigate("/dashboard");
+      console.log("Tentative de redirection vers /dashboard");
+      
+      // Force la redirection de manière plus directe
+      setTimeout(() => {
+        window.location.href = '/dashboard';
+      }, 500);
+      
     } catch (error) {
       toast({
         title: "Erreur",
