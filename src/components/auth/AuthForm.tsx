@@ -40,8 +40,12 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
     setIsLoading(true);
     
     try {
-      // Simulate API call
+      // Simuler une connexion/inscription
       await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Sauvegarder les informations d'authentification
+      localStorage.setItem('isAuthenticated', 'true');
+      localStorage.setItem('userEmail', values.email);
       
       toast({
         title: type === "login" ? "Connexion réussie" : "Compte créé avec succès",
