@@ -54,6 +54,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
           : "Votre compte a été créé. Vous pouvez maintenant vous connecter.",
       });
       
+      // Redirection vers le plan de réservation après connexion
       navigate("/dashboard");
     } catch (error) {
       toast({

@@ -15,6 +15,9 @@ const Login: React.FC = () => {
           <p className="text-center text-gray-600 mb-8">
             Connectez-vous pour accéder à votre espace de réservation
           </p>
+          <p className="text-center text-blue-500 mb-4 text-sm">
+            Après la connexion, vous serez dirigé vers le plan interactif pour réserver votre espace
+          </p>
           <AuthForm type="login" />
         </div>
       </div>

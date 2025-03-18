@@ -15,6 +15,9 @@ const Register: React.FC = () => {
           <p className="text-center text-gray-600 mb-8">
             Créez un compte pour commencer à réserver vos espaces de travail
           </p>
+          <p className="text-center text-blue-500 mb-4 text-sm">
+            Après l'inscription, vous serez dirigé vers le plan interactif pour réserver votre espace
+          </p>
           <AuthForm type="register" />
         </div>
       </div>
