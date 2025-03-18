@@ -15,12 +15,13 @@ interface MeetingRoomProps {
 
 const MeetingRoom: React.FC<MeetingRoomProps> = ({ id, x, y, width, height, isBooked, onSelect }) => {
   const { toast } = useToast();
+  const roomLabel = id === 'phonebox' ? 'PhoneBox' : id.replace('room-', 'Salle ');
 
   const handleClick = () => {
     if (isBooked) {
       toast({
         title: "Salle déjà réservée",
-        description: "Cette salle de réunion est déjà réservée pour cette période.",
+        description: "Cette salle est déjà réservée pour cette période.",
         variant: "destructive",
       });
       return;
@@ -31,18 +32,22 @@ const MeetingRoom: React.FC<MeetingRoomProps> = ({ id, x, y, width, height, isBo
 
   return (
     <motion.div
-      className={`absolute rounded-md cursor-pointer ${isBooked ? 'bg-amber-300' : 'bg-yellow-300'}`}
+      className={`absolute rounded-md cursor-pointer ${isBooked ? 'bg-amber-300/80' : 'bg-yellow-300/80'} shadow-md flex items-center justify-center text-xs font-bold`}
       style={{ 
         left: `${x}px`, 
         top: `${y}px`,
         width: `${width}px`,
-        height: `${height}px`
+        height: `${height}px`,
+        zIndex: 10
       }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       onClick={handleClick}
       data-room-id={id}
-    />
+      title={roomLabel}
+    >
+      {roomLabel}
+    </motion.div>
   );
 };
 

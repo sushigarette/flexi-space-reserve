@@ -13,6 +13,7 @@ interface DeskProps {
 
 const Desk: React.FC<DeskProps> = ({ id, x, y, isBooked, onSelect }) => {
   const { toast } = useToast();
+  const deskNumber = id.replace('desk-', '');
 
   const handleClick = () => {
     if (isBooked) {
@@ -29,13 +30,21 @@ const Desk: React.FC<DeskProps> = ({ id, x, y, isBooked, onSelect }) => {
 
   return (
     <motion.div
-      className={`absolute w-10 h-10 rounded-full cursor-pointer ${isBooked ? 'bg-red-500' : 'bg-green-500'}`}
-      style={{ left: `${x}px`, top: `${y}px` }}
+      className={`absolute rounded-full cursor-pointer flex items-center justify-center ${isBooked ? 'bg-red-500' : 'bg-green-500'} text-white font-semibold shadow-md`}
+      style={{ 
+        left: `${x - 15}px`, 
+        top: `${y - 15}px`,
+        width: '30px',
+        height: '30px',
+      }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       onClick={handleClick}
       data-desk-id={id}
-    />
+      title={`Bureau FlexOffice ${deskNumber}`}
+    >
+      {deskNumber}
+    </motion.div>
   );
 };
 

@@ -25,19 +25,13 @@ const FloorPlan: React.FC<FloorPlanProps> = ({ desks, meetingRooms, onReservatio
   };
 
   return (
-    <div className="relative w-full h-[600px] border border-gray-300 rounded-lg overflow-hidden bg-gray-50">
-      {/* Blueprint Background */}
-      <div className="absolute inset-0 bg-blue-50 p-6">
-        <div className="grid grid-cols-12 gap-4 h-full">
-          {/* Grid Lines */}
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={`col-${i}`} className="h-full border-l border-blue-100" />
-          ))}
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div key={`row-${i}`} className="absolute w-full border-t border-blue-100" style={{ top: `${(i + 1) * 12.5}%` }} />
-          ))}
-        </div>
-      </div>
+    <div className="relative w-full min-h-[1140px] border border-gray-300 rounded-lg overflow-auto">
+      {/* Background Floor Plan Image */}
+      <img 
+        src="/lovable-uploads/e1aa33bb-423e-4b2d-8598-08df529360c3.png" 
+        alt="Plan d'étage" 
+        className="absolute top-0 left-0 w-full h-auto z-0" 
+      />
       
       {/* Desks */}
       {desks.map(desk => (
