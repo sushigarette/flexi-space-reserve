@@ -55,6 +55,16 @@ const Header: React.FC = () => {
     navigate('/');
   };
   
+  const handleLogin = () => {
+    // Si l'utilisateur est déjà authentifié, rediriger vers le dashboard
+    // Sinon, rediriger vers la page de connexion
+    if (isAuthenticated) {
+      navigate('/dashboard');
+    } else {
+      navigate('/login');
+    }
+  };
+  
   return (
     <header className="w-full py-4 px-6 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -116,7 +126,7 @@ const Header: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="flex items-center space-x-4"
           >
-            <Button variant="ghost" onClick={() => navigate('/login')}>Connexion</Button>
+            <Button variant="ghost" onClick={handleLogin}>Connexion</Button>
             <Button onClick={() => navigate('/register')}>S'inscrire</Button>
           </motion.div>
         )}
